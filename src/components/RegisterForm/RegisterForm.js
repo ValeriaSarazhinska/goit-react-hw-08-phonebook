@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 import styled from '@mui/material/styles/styled';
 
-const Form = styled('div')({
+const Form = styled('form')({
   width: '320px',
 });
 
@@ -50,26 +50,26 @@ export const RegisterForm = () => {
         name: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
-      })
+      }),
     );
     form.reset();
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
+    <Form onSubmit={handleSubmit} autoComplete='off'>
       <Label>
         Username
-        <Input type="text" name="name" />
+        <Input type='text' name='name' />
       </Label>
       <Label>
         Email
-        <Input type="email" name="email" />
+        <Input type='email' name='email' />
       </Label>
       <Label>
         Password
-        <Input type="password" name="password" />
+        <Input type='password' name='password' />
       </Label>
-      <Button  type="submit">Register</Button>
+      <Button type='submit'>Register</Button>
     </Form>
   );
 };

@@ -1,8 +1,6 @@
-import { NavLink } from 'react-router-dom';
 import styled from '@mui/material/styles/styled';
-import Box from '@mui/material/Box';
 
-const Link = styled(NavLink)(({ theme }) => ({
+const Link = styled("NavLink")({
   display: 'inline-block',
   textDecoration: 'none',
   padding: '12px',
@@ -11,13 +9,13 @@ const Link = styled(NavLink)(({ theme }) => ({
   '&.active': {
     color: 'darkorange',
   },
-}));
+});
 
 export const AuthNav = () => {
   return (
-    <Box>
+    <div>
       <Link to="/register">Register</Link>
       <Link to="/login">Log In</Link>
-    </Box>
+    </div>
   );
 };

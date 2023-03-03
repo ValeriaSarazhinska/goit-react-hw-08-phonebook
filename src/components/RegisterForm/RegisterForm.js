@@ -4,12 +4,15 @@ import styled from '@mui/material/styles/styled';
 
 const Form = styled('form')({
   width: '320px',
+  fontWeight: 500,
+  color: 'black',
 });
 
 const Label = styled('label')({
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '16px',
+  width: '320px',
 });
 
 const Button = styled('button')({
@@ -59,15 +62,15 @@ export const RegisterForm = () => {
     <Form onSubmit={handleSubmit} autoComplete='off'>
       <Label>
         Username
-        <Input type='text' name='name' />
+        <Input type='text' name='name' minLength={2} maxLength={20} required />
       </Label>
       <Label>
         Email
-        <Input type='email' name='email' />
+        <Input type='email' name='email' required/>
       </Label>
       <Label>
         Password
-        <Input type='password' name='password' />
+        <Input type='password' name='password' minLength={7} maxLength={20} required/>
       </Label>
       <Button type='submit'>Register</Button>
     </Form>

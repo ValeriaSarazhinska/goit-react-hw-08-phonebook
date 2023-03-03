@@ -12,18 +12,17 @@ import { Notify } from 'notiflix';
 export default function Contacts() {
   const dispatch = useDispatch();
   const error = useSelector(getError);
+  const contacts = useSelector(selectContacts);
+  const loading = useSelector(getIsLoading);
 
   useEffect(()=>{
     dispatch(fetchContacts())
   },[dispatch])
 
+
   useEffect(()=>{
     if (error) return Notify.failure(`${error}`);
   },[error])
-
-
-  const contacts = useSelector(selectContacts);
-  const loading = useSelector(getIsLoading);
 
   return (
     <>

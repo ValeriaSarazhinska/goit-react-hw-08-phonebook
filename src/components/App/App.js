@@ -9,7 +9,10 @@ import { useAuth } from '../../hooks';
 import styled from '@mui/material/styles/styled';
 
 import Box from '@mui/material/Box';
+import { Navigation } from '../Navigation/Navigation';
+import Loader from '../Loader/Loader';
 
+const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
@@ -33,10 +36,11 @@ export const App = () => {
   return (
     <Main>
       {isRefreshing ? (
-        <b>Refreshing user...</b>
+     <Loader/>
       ) : (
         <Routes>
           <Route path='/' element={<Layout />}>
+            <Route index element={<HomePage />} />
             <Route
               path='/register'
               element={
@@ -61,6 +65,7 @@ export const App = () => {
               }
             />
           </Route>
+          <Route path="*" element={<Navigation to="/" />} />
         </Routes>
       )}
     </Main>

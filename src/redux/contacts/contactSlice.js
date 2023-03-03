@@ -12,6 +12,7 @@ const contactSlice = createSlice({
     },
     filter: '',
   },
+
   reducers: {
     filterContacts: (state, { payload }) => {
       state.filter = payload;

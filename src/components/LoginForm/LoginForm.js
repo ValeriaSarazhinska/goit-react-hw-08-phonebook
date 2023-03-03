@@ -6,14 +6,16 @@ export const Form = styled('form')({
   display: 'inline-block',
   textDecoration: 'none',
   padding: '12px',
-  fontWeight: 700,
-  color: 'midnightblue',
+  fontWeight: 500,
+  color: 'black',
 });
 
 export const Label = styled('label')({
   display: 'flex',
   flexDirection: 'column',
   marginBottom: 16,
+  width: '320px',
+  color: 'midnightblue'
 });
 
 export const Button = styled('button')({
@@ -63,11 +65,11 @@ export const LoginForm = () => {
     <Form onSubmit={handleSubmit} autoComplete='off'>
       <Label>
         Email
-        <Input type='email' name='email' />
+        <Input type='email' name='email' required />
       </Label>
       <Label>
         Password
-        <Input type='password' name='password' />
+        <Input type='password' name='password' minLength={7} maxLength={20} required/>
       </Label>
       <Button type='submit'>Log In</Button>
     </Form>
